@@ -3,6 +3,7 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import { useEffect, useState } from 'react';
 import { useActiveSection } from '../context/ActiveSetionProvider';
+import AdsClickOutlinedIcon from '@mui/icons-material/AdsClickOutlined';
 import { useScroll } from '../context/ScrollProvider';
 
 const ScrollBtn = ({ direction }) => {
@@ -39,19 +40,20 @@ const ScrollBtn = ({ direction }) => {
 		arrowdirection === 'up' ? <ArrowUpwardIcon /> : <ArrowDownwardIcon />;
 
 	return (
-		<motion.button
-			variants={variants}
-			initial='initial'
-			animate='animate'
-			className='  bg-crimson rounded-2xl h-10 '
-			onClick={
-				direction === 'up'
-					? () => handleScroll(heroRef, 'hero')
-					: () => handleScroll(aboutRef, 'about')
-			}
-		>
-			{arrow}
-		</motion.button>
+		<motion.div className='bg-crimson rounded-2xl h-10 '>
+			<motion.button
+				variants={variants}
+				initial='initial'
+				animate='animate'
+				onClick={
+					direction === 'up'
+						? () => handleScroll(heroRef, 'hero')
+						: () => handleScroll(aboutRef, 'about')
+				}
+			>
+				{arrow}
+			</motion.button>
+		</motion.div>
 	);
 };
 export default ScrollBtn;
