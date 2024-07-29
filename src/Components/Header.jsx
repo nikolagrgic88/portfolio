@@ -57,7 +57,7 @@ const Header = () => {
 	};
 
 	return (
-		<header className='flex flex-col sticky xl:flex-row xl:justify-between xl:items-center bg-gradient-to-l violet w-5/6 lg:w-4/6 h-10 top-10 rounded-xl px-5 py-10 z-50'>
+		<header className='flex flex-col sticky xl:flex-row xl:justify-between xl:items-center bg-gradient-to-l from-violet to-dark-violet w-5/6 lg:w-4/6 h-10 top-10 rounded-xl px-5 py-10 z-50'>
 			<motion.div className='flex flex-col  justify-center min-h-full text-left'>
 				<motion.h1
 					className='text-2xl sm:text-3xl md:text-4xl pl-5'

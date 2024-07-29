@@ -6,11 +6,13 @@ import { PUBLIC_KEY, SERVICE_ID, TEMPLATE_ID } from '../util/emailServices';
 
 const ContactMeForm = () => {
 	const [message, setMessage] = useState('');
+	const [sending, setSending] = useState(false);
 	const [error, setError] = useState('');
 	const formRef = useRef(null);
 
 	const sendEmail = (e) => {
 		e.preventDefault();
+		setSending(true);
 
 		emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY).then(
 			(result) => {
@@ -23,24 +25,26 @@ const ContactMeForm = () => {
 			},
 			(error) => {
 				console.log(error.text);
-				setError('Error sending message. Please try again later.');
+				setError('Error sending message. Please try again later!');
 				setTimeout(() => {
 					setError('');
 				}, 3000);
 			}
 		);
+		setSending(false);
 	};
 
 	return (
-		<div className='relative min-w-96 md:min-w-50w lg:min-w-30w mx-auto p-4 bg-gradient-to-b from-black to-violet rounded-md shadow-md'>
-			<h2 className='text-3xl  mb-5 mt-5 text-orange-50'>Contact Me</h2>
-			<form ref={formRef} onSubmit={sendEmail}>
+		<div className='relative min-w-96 md:min-w-50w lg:min-w-30w mx-auto p-4 bg-gradient-to-b from-dark-violet to-violet rounded-md shadow-md'>
+			<div className='absolute top-0 left-0 right-0 flex justify-center -mt-7'>
 				<Alert
 					severity={`${(error && 'error') || (message && 'success')}`}
-					className='absolute  -top-2 right-16 md:right-1/4 '
+					className='whitespace-nowrap'
 				>
 					{error || message}
 				</Alert>
+			</div>
+			<form ref={formRef} onSubmit={sendEmail}>
 				<div className='mb-4'>
 					<label
 						htmlFor='name'
@@ -84,7 +88,9 @@ const ContactMeForm = () => {
 					></textarea>
 				</div>
 				<div className='flex items-center justify-center'>
-					<Button type='submit'>Send Message</Button>
+					<Button type='submit'>
+						{sending ? 'Sending...' : 'Send Message'}
+					</Button>
 				</div>
 			</form>
 		</div>
