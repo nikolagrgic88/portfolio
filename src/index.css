@@ -16,4 +16,5 @@
 	.mobile-list-item {
 		@apply text-crimson text-center text-xl p-4 transition-all hover:bg-crimson hover:text-orange-50 hover:duration-300 ease-in;
 	}
+	
 }
