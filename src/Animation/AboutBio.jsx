@@ -104,10 +104,14 @@ const AboutBio = () => {
           </motion.h1>
         </motion.div>
       </motion.div>
-      <motion.div className="flex flex-col text-center  md:text-left md:flex-row relative justify-between w-4/6 md:w-5/6 gap-10">
+      <motion.div className="flex flex-col text-center items-center md:items-stretch md:text-left md:flex-row relative justify-center w-4/6 md:w-5/6 gap-36 md:mt-20">
         <AnimatePresence>
-          <TextCard key={1}>{ABOUTb}</TextCard>
-          <TextCard key={2}>{ABOUTc}</TextCard>
+          <TextCard key={1} className={"lg:text-2xl relative p-3 rounded-3xl"}>
+            {ABOUTb}
+          </TextCard>
+          <TextCard key={2} className={"lg:text-2xl relative p-3 rounded-3xl"}>
+            {ABOUTc}
+          </TextCard>
         </AnimatePresence>
       </motion.div>
     </motion.div>

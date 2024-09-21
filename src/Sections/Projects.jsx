@@ -19,7 +19,7 @@ const Projects = () => {
           <Animation.ProjectCard card={project} key={index} />
         ))}
       </div>
-      <Animation.StarsCanvas />
+      {/* <Animation.StarsCanvas /> */}
       <div className="flex w-full relative justify-between mb-20">
         <Animation.Planet
           img={earth}

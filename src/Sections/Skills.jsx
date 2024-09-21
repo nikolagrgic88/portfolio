@@ -1,8 +1,7 @@
 import { useInView } from "framer-motion";
 import Animation from "../Animation";
 import { useScroll } from "../context/ScrollProvider";
-import SkillsBio from "../Components/SkillsBio";
-import SectionHeading from "../Components/SectionHeading";
+import Components from "../Components";
 import neptun from "/assets/planets/nept.png";
 
 const Skills = () => {
@@ -12,9 +11,9 @@ const Skills = () => {
     <section
       ref={skillsRef}
       id="skills"
-      className="min-w-full flex flex-col justify-center pt-20 md:pt-0"
+      className="min-w-full flex flex-col justify-center items-center pt-20 md:pt-0"
     >
-      <SectionHeading>Skills</SectionHeading>
+      <Components.SectionHeading>Skills</Components.SectionHeading>
       <div className="relative w-full">
         <Animation.Planet
           img={neptun}
@@ -22,8 +21,7 @@ const Skills = () => {
           rotate={false}
         />
       </div>
-      s
-      <SkillsBio isInView={isInView} />
+      <Components.SkillsBio isInView={isInView} />
       <div className="absolute right-0 left-0 -z-50">
         <Animation.StarsCanvas />
       </div>

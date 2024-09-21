@@ -10,12 +10,12 @@ const AboutMe = () => {
     <section
       ref={aboutRef}
       id="about"
-      className=" md:h-75v flex flex-col items-center justify-center "
+      className="h-fit md:h-75v flex flex-col items-center justify-center "
     >
       <div className="relative w-full">
         <Animation.Planet
           img={venus}
-          className={"absolute w-96 top-0 -left-96 opacity-70 "}
+          className={"absolute md:w-96 w-[26rem] top-0 -left-96 opacity-70 "}
           rotate={false}
         />
       </div>

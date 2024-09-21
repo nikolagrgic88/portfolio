@@ -9,8 +9,7 @@ const App = () => {
       <ScrollingProvider>
         <div className="flex flex-col items-center relative w-screen  text-orange-50 bg-black font-poppins-font z-0 overflow-x-hidden overflow-y-hidden">
           <Header />
-          <main className=" w-full  lg:w-4/6 ">
-            {/* TO DO increase w on main to full, then reduce on children elemnts */}
+          <main className=" w-full lg:max-w-[100rem]">
             <Sections.Hero />
             <Sections.AboutMe />
             <Sections.Experience />
@@ -18,7 +17,6 @@ const App = () => {
             <Sections.Projects />
             <Sections.Contact />
           </main>
-          {/* <StarsCanvas /> */}
         </div>
       </ScrollingProvider>
     </ActiveSectionProvider>

@@ -2,8 +2,8 @@ import Animation from "../Animation";
 
 const SkillsBio = ({ isInView }) => {
   return (
-    <div className="relative flex flex-col  items-center mt-10 xl:flex-row xl:justify-around xl:gap-36  min-w-full xl:mt-20">
-      <div className="flex flex-col h-aut0 w-1/2 gap-5 whitespace overflow-hidde">
+    <div className="relative flex flex-col items-center mt-10 xl:flex-row xl:justify-center xl:gap-36 w-5/6 xl:mt-20">
+      <div className="flex flex-col h-aut0 w-[45%] gap-5 whitespace overflow-hidde">
         <div>
           <h3 className="text-center xl:text-start">
             I'm constantly expending my skill set and exploring new technologies

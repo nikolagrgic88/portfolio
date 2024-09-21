@@ -1,11 +1,11 @@
 import { useScroll, motion, useTransform } from "framer-motion";
 import { useRef } from "react";
 
-const TextCard = ({ children }) => {
+const TextCard = ({ children, className }) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["0 1", "1.33 1"],
+    offset: ["0 1.5", "1.33 1"],
   });
 
   const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
@@ -22,8 +22,10 @@ const TextCard = ({ children }) => {
       }}
       initial={{ opacity: 0, scale: 0.8 }}
       transition={{ duration: 0.5 }}
+      className={`w-96 ${className}`}
     >
-      <p className="lg:text-xl relative p-3 rounded-3xl ">{children}</p>
+      {children}
+    
     </motion.div>
   );
 };

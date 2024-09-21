@@ -35,7 +35,7 @@ const ContactMeForm = () => {
   };
 
   return (
-    <div className="relative min-w-96 md:min-w-50w lg:min-w-30w mx-auto p-4 bg-gradient-to-b from-dark-violet to-violet  rounded-md shadow-md">
+    <div className="relative min-w-96 md:w-50w lg:w-[40rem] mx-auto p-4 bg-gradient-to-b from-dark-violet to-violet  rounded-md shadow-md">
       <div className="absolute top-0 left-0 right-0 flex justify-center -mt-7">
         <Alert
           severity={`${(error && "error") || (message && "success")}`}

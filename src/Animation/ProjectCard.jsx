@@ -13,6 +13,15 @@ const ProjectCard = ({ card }) => {
   const rotateX = useTransform(ySpring, [-0.5, 0.5], ["12deg", "-12deg"]);
   const rotateY = useTransform(xSpring, [-0.5, 0.5], ["-12deg", "12deg"]);
 
+  const startX = useRef(null);
+  const startY = useRef(null);
+
+  const handleTouchStart = (event) => {
+    const touch = event.touches[0];
+    startX.current = touch.clientX;
+    startY.current = touch.clientY;
+  };
+
   const handleMouseMove = (e) => {
     if (!ref.current) return [0, 0];
 
@@ -31,9 +40,34 @@ const ProjectCard = ({ card }) => {
     y.set(rY);
   };
 
+  const handleTouchMove = (event) => {
+    if (!ref.current || startX.current === null || startY.current === null)
+      return;
+
+    const touch = event.touches[0];
+    const deltaX = touch.clientX - startX.current;
+    const deltaY = touch.clientY - startY.current;
+
+    const rect = ref.current.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+
+    const rX = deltaX / width;
+    const rY = deltaY / height;
+
+    x.set(rX);
+    y.set(rY);
+  };
+
   const handleMouseLeave = () => {
     x.set(0);
     y.set(0);
+  };
+  const handleTouchEnd = () => {
+    x.set(0);
+    y.set(0);
+    startX.current = null;
+    startY.current = null;
   };
 
   return (
@@ -41,12 +75,15 @@ const ProjectCard = ({ card }) => {
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
       style={{
         transformStyle: "preserve-3d",
         rotateX,
         rotateY,
       }}
-      className="relative w-72 h-96 rounded-xl bg-gradient-to-br from-indigo-300 to-violet-300"
+      className="relative w-72 h-96  md:w-96 md:h-[28rem] rounded-xl bg-gradient-to-b from-dark-violet to-violet "
     >
       <a
         href={card.href}
@@ -65,7 +102,7 @@ const ProjectCard = ({ card }) => {
           style={{
             transform: "translateZ(50px)",
           }}
-          className="absolute text-center w-full text-xl md:text-xl font-bold text-crimson"
+          className="absolute text-center w-full top-5 text-xl md:text-xl font-bold text-crimson"
         >
           {card.name}
         </p>

@@ -22,7 +22,7 @@ const ParticleSystem = () => {
 
     const animate = () => {
       setAnimationState((prev) => prev + 1);
-    
+
       if (backgroundImage.complete) {
         context.clearRect(0, 0, canvas.width, canvas.height);
         context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
@@ -34,7 +34,7 @@ const ParticleSystem = () => {
       }
 
       particles.sort((a, b) => a.scale - b.scale);
-  
+
       particles.forEach((particle) => {
         particle.update(cursor);
         particle.draw(context);
@@ -44,22 +44,34 @@ const ParticleSystem = () => {
 
     // Mouse event handlers
 
-    const handleMouseMove = (e) => {
-      const x = (e.offsetX / canvas.offsetWidth) * canvas.width;
-      const y = (e.offsetY / canvas.offsetHeight) * canvas.height;
+    const handleMove = (e) => {
+      const isTouch = e.type.startsWith("touch");
+      const event = isTouch ? e.touches[0] : e;
+      const rect = canvas.getBoundingClientRect();
+
+      const x = ((event.clientX - rect.left) / rect.width) * canvas.width;
+      const y = ((event.clientY - rect.top) / rect.height) * canvas.height;
       setCursor({ x, y });
+
+      if (isTouch) e.preventDefault();
     };
 
-    const handleMouseLeave = () => {
+    const handleLeave = () => {
       setCursor({ x: 9999, y: 9999 });
     };
 
-    canvas.addEventListener("mousemove", handleMouseMove);
-    canvas.addEventListener("mouseleave", handleMouseLeave);
+    canvas.addEventListener("mousemove", handleMove);
+    canvas.addEventListener("mouseleave", handleLeave);
+    canvas.addEventListener("touchstart", handleMove, { passive: false });
+    canvas.addEventListener("touchmove", handleMove, { passive: false });
+    canvas.addEventListener("touchend", handleLeave);
 
     return () => {
-      canvas.removeEventListener("mousemove", handleMouseMove);
-      canvas.removeEventListener("mouseleave", handleMouseLeave);
+      canvas.removeEventListener("mousemove", handleMove);
+      canvas.removeEventListener("mouseleave", handleLeave);
+      canvas.removeEventListener("touchstart", handleMove);
+      canvas.removeEventListener("touchmove", handleMove);
+      canvas.removeEventListener("touchend", handleLeave);
     };
   }, [cursor, animationState]);
 
