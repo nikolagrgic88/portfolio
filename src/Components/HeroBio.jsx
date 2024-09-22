@@ -15,7 +15,7 @@ const HeroBio = () => {
     },
   };
   return (
-    <div className="w-full md:w-2/4 flex flex-col items-center gap-8 lg:gap-16 lg:items-start md:mt-44 lg:pt-0 xl:pt-10 h-full z-20 relative">
+    <div className="w-full md:w-2/4 flex flex-col items-center gap-8 lg:gap-16 lg:items-start lg:pt-0 xl:pt-10 h-full z-20 relative">
       <div className="relative flex flex-col h-auto overflow-hidden w-fit sm:items-center ">
         <motion.div
           className="absolute top-0 left-0 w-full h-full bg-[#df0e35]"

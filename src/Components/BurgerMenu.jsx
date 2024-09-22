@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaBars, FaTimes } from "react-icons/fa";
 import { useScroll } from "../context/ScrollProvider";
 import { useActiveSection } from "../context/ActiveSetionProvider";
 
@@ -19,9 +18,62 @@ const BurgerMenu = ({ handleScroll }) => {
 
   return (
     <div className="flex flex-col items-end relative -top-4 left-0 xl:hidden">
-      <button onClick={toggleMenu} className="text-3xl">
-        {isOpen ? <FaTimes /> : <FaBars />}
-      </button>
+      <motion.button onClick={toggleMenu}>
+        <div className="space-y-2">
+          {/* Top Line */}
+          <motion.div
+            className="w-8 h-1 bg-white"
+            style={{ transformOrigin: "right" }}
+            animate={
+              isOpen
+                ? {
+                    rotateZ: "-45deg",
+                    y: 1,
+                    transition: { duration: 0.3, delay: 0.5 },
+                  }
+                : { rotateZ: "0deg", y: 0, transition: { duration: 0.3 } }
+            }
+          ></motion.div>
+
+          {/* Middle Line */}
+          <div className="overflow-hidden">
+            <motion.div
+              className="w-8 h-1 bg-white"
+              animate={
+                isOpen
+                  ? {
+                      x: 40,
+                      transition: { duration: 0.3 },
+                    }
+                  : {
+                      opacity: 1,
+                      x: 0,
+                      transition: { duration: 0.3, delay: 0.5 },
+                    }
+              }
+            ></motion.div>
+          </div>
+
+          {/* Bottom Line */}
+          <motion.div
+            className="w-8 h-1 bg-white"
+            style={{ transformOrigin: "right" }}
+            animate={
+              isOpen
+                ? {
+                    rotateZ: "45deg",
+                    y: -1,
+                    transition: { duration: 0.3, delay: 0.5 },
+                  }
+                : {
+                    rotateZ: "0deg",
+                    y: 0,
+                    transition: { duration: 0.3 },
+                  }
+            }
+          ></motion.div>
+        </div>
+      </motion.button>
 
       <AnimatePresence>
         {isOpen && (

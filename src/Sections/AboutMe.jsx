@@ -10,7 +10,7 @@ const AboutMe = () => {
     <section
       ref={aboutRef}
       id="about"
-      className="h-fit md:h-75v flex flex-col items-center justify-center "
+      className="h-fit md:h-75v flex flex-col items-center justify-center mb-36 "
     >
       <div className="relative w-full">
         <Animation.Planet

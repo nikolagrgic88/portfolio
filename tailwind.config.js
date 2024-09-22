@@ -43,7 +43,10 @@ export default {
         "crimson-light": "#F02850",
         "crimson-shadow": "#dc143c6f",
       },
-      height: height,
+      height: {
+        height,
+        "screen-dynamic": "calc(var(--vh, 1vh) * 100)",
+      },
       minHeight: height,
       maxHeight: height,
       width: width,

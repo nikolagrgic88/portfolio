@@ -8,7 +8,7 @@ const Hero = () => {
     <section
       ref={heroRef}
       id="hero"
-      className="flex flex-col-reverse justify-center items-center h-screen md:flex-row italic relative pt-20 md:mt-24  xl:pt-40 z-10 cursor-default"
+      className="flex flex-col-reverse justify-center items-center min-h-dvh lg:flex-row lg:pt-10 italic relative  z-10 cursor-default "
     >
       <Components.HeroBio />
       <div className="relative md:w-2/5 xl:w-2/5 lg:w-3/5 h-full z-10 pt-10 w-4/6 sm:content-center md:content-baseline ">

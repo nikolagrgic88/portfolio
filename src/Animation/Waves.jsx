@@ -46,7 +46,7 @@ const Waves = () => {
       {waves.map((wave) => (
         <motion.div
           key={wave.key}
-          className="absolute w-72 h-72 rounded-full -z-50"
+          className="absolute w-72 h-72 rounded-full -z-50 "
           initial={{ scale: 0, opacity: 0 }}
           animate={{
             scale: [0, 7],

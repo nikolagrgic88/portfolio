@@ -19,7 +19,7 @@ const Experience = () => {
     <section
       ref={experienceRef}
       id="experience"
-      className="min-h-fit md:min-h-screen flex flex-col items-center relative justify-center w-full mb-10 "
+      className="min-h-fit md:min-h-screen flex flex-col items-center relative justify-center w-full mb-36 "
     >
       <SectionHeading>Experience</SectionHeading>
       <div className="hidden lg:flex justify-center gap-10 cursor-auto mt-14 w-full ">
@@ -28,6 +28,7 @@ const Experience = () => {
             key={field.id}
             className={`w-fit rounded-lg bg-dark-violet px-8 py-2 cursor-auto flex items-center `}
             onHoverStart={() => setActiveSection(field)}
+            onClick={() => setActiveSection(field)}
           >
             <p
               className={`cursor-default font-bold ${
@@ -42,7 +43,7 @@ const Experience = () => {
       <ExperienceCard activeSection={activeSection} />
       <div className="lg:hidden  flex flex-col items-center w-4/6 h-fit gap-20 mt-32 ">
         {EXPERIENCE.map((content, i) => (
-          <Animation.SmallExperienceCard card={content} />
+          <Animation.SmallExperienceCard card={content} key={i} />
         ))}
       </div>
 
