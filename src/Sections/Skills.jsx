@@ -11,7 +11,7 @@ const Skills = () => {
     <section
       ref={skillsRef}
       id="skills"
-      className="min-w-full flex flex-col justify-center items-center pt-20 md:pt-0"
+      className="min-w-full min-h-0v flex flex-col justify-center items-center pt-20 md:pt-0"
     >
       <Components.SectionHeading>Skills</Components.SectionHeading>
       <div className="relative w-full">

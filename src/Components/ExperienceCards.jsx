@@ -3,17 +3,18 @@ import ImageSlider from "./ImageSlider";
 
 const ExperienceCard = ({ activeSection }) => {
   const experience = activeSection.id === 1;
+ 
   return (
     <motion.div
       layoutId={activeSection.id}
-      className="hidden md:flex flex-col lg:flex-row w-5/6 h-50v mt-14 rounded-lg "
+      className="hidden md:flex flex-col lg:flex-row w-5/6 min-h-[52vh] mt-14 rounded-lg "
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
       transition={{ duration: 0.5 }}
     >
       <div
-        className={`h-1/2 ${
+        className={`h-1/2 "w-1/2" ${
           experience ? "w-full" : "w-1/2"
         } lg:h-full p-4 flex items-center justify-center`}
       >
@@ -47,22 +48,22 @@ const ExperienceCard = ({ activeSection }) => {
           )}
         </AnimatePresence>
       </div>
-      <AnimatePresence mode="wait">
-        {activeSection && (
-          <motion.div
-            className={`w-[45%] h-[40rem] py-4 pr-4 ${
-              experience && "hidden"
-            }  `}
-            key={activeSection.id}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0, transition: { duration: 0.5 } }}
-            transition={{ duration: 0.5 }}
-          >
-            {!experience && <ImageSlider images={activeSection.images} />}
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {!experience && (
+        <AnimatePresence mode="wait">
+          {activeSection && (
+            <motion.div
+              className="w-[45%] h-[40rem] py-4"
+              key={activeSection.id}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0, transition: { duration: 0.5 } }}
+              transition={{ duration: 0.5 }}
+            >
+              {!experience && <ImageSlider images={activeSection.images} />}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      )}
     </motion.div>
   );
 };
