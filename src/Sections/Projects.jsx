@@ -31,7 +31,7 @@ const Projects = () => {
           img={mars}
           rotate={true}
           className={" opacity-1 max-w-12"}
-          glowColor={'brown'}
+          glowColor={"yellow"}
         />
       </div>
     </section>
