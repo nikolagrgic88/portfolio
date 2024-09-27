@@ -3,18 +3,25 @@
 @tailwind utilities;
 
 @layer base {
-	.list-item {
-		@apply cursor-pointer;
-	}
-	.list-item:hover,
-	.list-item:active,
-	.list-item.active {
-		@apply underline decoration-crimson transition-all duration-500 ease-in shadow-md shadow-crimson;
-		text-underline-offset: 5px;
-	}
+  .list-item {
+    @apply cursor-pointer;
+  }
+  .list-item:hover,
+  .list-item:active,
+  .list-item.active {
+    @apply underline decoration-crimson transition-all duration-500 ease-in shadow-md shadow-crimson;
+    text-underline-offset: 5px;
+  }
 
-	.mobile-list-item {
-		@apply text-crimson text-center text-xl p-4 transition-all hover:bg-crimson hover:text-orange-50 hover:duration-300 ease-in;
-	}
-	
+  .mobile-list-item {
+    @apply text-crimson text-center text-xl p-4 transition-all hover:bg-crimson hover:text-orange-50 hover:duration-300 ease-in;
+  }
+}
+
+.button {
+  will-change: filter;
+  transition: filter 300ms;
+}
+.button:hover {
+  filter: drop-shadow(0 0 5em #dc143c);
 }

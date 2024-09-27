@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
 
-const Planet = ({ img, rotate, className }) => {
+const Planet = ({ img, rotate, className, glowColor }) => {
   return (
-    <motion.div className="">
+    <motion.div>
       <motion.img
         src={img}
         alt="planets"
         className={`w-24 h-auto rounded-full ${className}`}
+        style={{ filter: `drop-shadow(0 0 3em ${glowColor})` }}
         animate={{
           rotateZ: rotate && 360,
           x: 2,

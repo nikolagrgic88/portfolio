@@ -19,6 +19,7 @@ const Skills = () => {
           img={neptun}
           className={"absolute w-80 -top-36 -right-96 opacity-70 "}
           rotate={false}
+          glowColor={'blue'}
         />
       </div>
       <Components.SkillsBio isInView={isInView} />

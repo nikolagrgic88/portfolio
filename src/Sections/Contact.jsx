@@ -22,7 +22,7 @@ const Contact = () => {
     <section
       ref={contactRef}
       id="contact"
-      className="h-65v  flex flex-col items-center justify-center relative mt-20 "
+      className="h-65v flex flex-col items-center justify-center relative mt-20 "
     >
       <Animation.AlienMessage
         speechBubbleReady={speechBubbleReady}
@@ -33,9 +33,12 @@ const Contact = () => {
       </div>
       <Animation.MoonRocket isInView={isInView} />
       <Animation.MoonRadar />
-      <div className="relative pointer-events-none w-full h-96">
+      <div className="relative pointer-events-none w-full h-96 ">
         <Animation.ContactLinks />
         <img src={bottomImg} alt="mars surf" className="w-full h-full z-0" />
+      </div>
+      <div className="absolute bottom-10 right-10 max-md:bottom-5 max-sm:hidden">
+        <Components.ScrollBtn direction={"up"} text={"Bact to the top"} />
       </div>
     </section>
   );

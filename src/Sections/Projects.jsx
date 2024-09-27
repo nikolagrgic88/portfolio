@@ -25,11 +25,13 @@ const Projects = () => {
           img={earth}
           rotate={true}
           className={"absolute top-20 opacity-70"}
+          glowColor={"white"}
         />
         <Animation.Planet
           img={mars}
           rotate={true}
           className={" opacity-1 max-w-12"}
+          glowColor={'brown'}
         />
       </div>
     </section>

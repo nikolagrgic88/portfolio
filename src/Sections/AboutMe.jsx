@@ -17,6 +17,7 @@ const AboutMe = () => {
           img={venus}
           className={"absolute md:w-96 w-[26rem] top-0 -left-96 opacity-70 "}
           rotate={false}
+          glowColor={'orange'}
         />
       </div>
       <Animation.AboutBio />

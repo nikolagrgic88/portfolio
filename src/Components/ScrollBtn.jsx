@@ -4,6 +4,7 @@ import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { useEffect, useState } from "react";
 import { useActiveSection } from "../context/ActiveSetionProvider";
 import { useScroll } from "../context/ScrollProvider";
+import "../index.css";
 
 const ScrollBtn = ({ direction, text }) => {
   const [arrowdirection, setArrowDirection] = useState("");
@@ -39,7 +40,7 @@ const ScrollBtn = ({ direction, text }) => {
     arrowdirection === "up" ? <ArrowUpwardIcon /> : <ArrowDownwardIcon />;
 
   return (
-    <motion.div className="w-max  bg-crimson rounded-2xl h-10 px-3 pt-2">
+    <motion.div className="w-max bg-crimson rounded-2xl h-10 px-3 pt-2 button">
       <motion.button
         className="flex items-center align-middle"
         onClick={
