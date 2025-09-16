@@ -46,7 +46,7 @@ const HeroBio = () => {
         className="w-full z-30 md:mt-10 lg:mt-0 flex justify-center lg:justify-start"
         variants={textHeroVariants}
       >
-        <ScrollBtn direction={"down"} text="Lets Explore More" />
+        <ScrollBtn direction={"down"} text="Let's Explore More" />
       </motion.div>
     </div>
   );

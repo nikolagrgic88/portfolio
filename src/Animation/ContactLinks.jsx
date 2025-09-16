@@ -5,7 +5,7 @@ import Resume from "/assets/NikolaGrgicResume.pdf";
 
 const ContactLinks = () => {
   return (
-    <motion.div className="flex w-full gap-2 absolute justify-center bottom-4  md:bottom-10 md:left-10 md:justify-start  pointer-events-auto ">
+    <motion.div className="flex w-full gap-2 absolute justify-center bottom-4  md:bottom-10 md:left-10 md:justify-start  pointer-events-auto z-10">
       {CONNECT.map((connect, i) => (
         <motion.a
           href={connect.url}

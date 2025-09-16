@@ -4,7 +4,7 @@ import radarTop from "/assets/logos/radarHead.png";
 
 const MoonRadar = () => {
   return (
-    <motion.div className="absolute w-20 left-3 top-56 md:left-14 md:top-56">
+    <motion.div className="absolute w-20 left-3 top-56 md:left-14 md:top-56 z-[5]">
       <motion.img
         src={radarTop}
         alt="radar"

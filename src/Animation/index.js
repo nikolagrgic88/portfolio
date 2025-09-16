@@ -17,8 +17,10 @@ import SmallExperienceCard from "./SmallExperienceCard";
 import Waves from "./Waves";
 import ProjectCard from "./ProjectCard";
 import ContactLinks from "./ContactLinks";
+import Astronaut from "./Astronaut";
 
 const Animation = {
+  Astronaut,
   Canvas,
   DotImage,
   ParticleSystem,

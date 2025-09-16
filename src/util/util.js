@@ -42,9 +42,9 @@ export const EXPERIENCE = [
   },
   {
     id: 4,
-    name: "Accesibility",
+    name: "Accessibility",
     images: IMAGES_WCAG,
-    heading: "Accesibility Improvements",
+    heading: "Accessibility Improvements",
     content:
       "I played a key role in improving the accessibility of our authentication login/signup flow to meet AA compliance standards. I conducted thorough audits and implemented code changes to ensure our platform was accessible to all users. My work involved close collaboration with the design team, where we reworked the layout and structure of key pages to ensure that our platform met the highest accessibility standards, making the service easier to use for everyone.",
   },
@@ -71,7 +71,7 @@ export const CONNECT = [
 export const PROJECTS = [
   {
     img: IMAGES_PROJECTS[0],
-    name: "Chair Affair - E-commerc store",
+    name: "Chair Affair - E-commerce store",
     text: "Chair Shop",
     href: "https://ikea-data-4d4f9.web.app/",
   },

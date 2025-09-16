@@ -4,6 +4,7 @@ import bottomImg from "/assets/logos/mountains.png";
 import { useInView } from "framer-motion";
 import Animation from "../Animation";
 import Components from "../Components";
+import Astronaut from "../Animation/Astronaut";
 
 const Contact = () => {
   const { contactRef } = useScroll();
@@ -22,7 +23,7 @@ const Contact = () => {
     <section
       ref={contactRef}
       id="contact"
-      className="h-65v flex flex-col items-center justify-center relative mt-20 "
+      className="flex flex-col items-center justify-center relative mt-20 "
     >
       <Animation.AlienMessage
         speechBubbleReady={speechBubbleReady}
@@ -35,11 +36,13 @@ const Contact = () => {
       <Animation.MoonRadar />
       <div className="relative pointer-events-none w-full h-96 ">
         <Animation.ContactLinks />
-        <img src={bottomImg} alt="mars surf" className="w-full h-full z-0" />
+        <img src={bottomImg} alt="mars surf" className="w-full h-full -z-10" />
       </div>
-      <div className="absolute bottom-10 right-10 max-md:bottom-5 max-sm:hidden">
-        <Components.ScrollBtn direction={"up"} text={"Bact to the top"} />
+
+      <div className="absolute bottom-[10rem] right-10 max-md:bottom-5 max-sm:hidden z-10">
+        <Components.ScrollBtn direction={"up"} text={"Back to the top"} />
       </div>
+      <Astronaut />
     </section>
   );
 };
