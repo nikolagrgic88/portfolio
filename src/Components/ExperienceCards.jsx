@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import ImageSlider from "./ImageSlider";
 
+
 const ExperienceCard = ({ activeSection }) => {
   const experience = activeSection.id === 1;
  
