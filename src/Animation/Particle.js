@@ -1,5 +1,3 @@
-import _ from "lodash";
-import { scaleLinear } from "d3-scale";
 import random from "canvas-sketch-util/random";
 import math from "canvas-sketch-util/math";
 
@@ -21,7 +19,7 @@ class Particle {
     this.radius = radius;
     this.scale = 1;
     this.colorMap = colorMap;
-		this.color = colorMap(1);
+    this.color = colorMap(1);
     this.minDist = random.range(100, 200);
     this.pushFactor = random.range(0.03, 0.048);
     this.pullFactor = random.range(0.001, 0.002);

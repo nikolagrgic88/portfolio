@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useImageParticleCreator from "../hooks/useImageParticleCreator";
 import profile from "/assets/logos/DesignNikolarev.png";
 import colors from "/assets/logos/colors1.jpg";

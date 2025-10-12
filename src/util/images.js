@@ -40,7 +40,7 @@ import support3 from "/assets/support/support3.png";
 // **** PROJECTS ****
 import CA from "/assets/projects/CA.png";
 import PR from "/assets/projects/PR.png";
-import Twitter from "/assets/projects/twitter.png";
+import Stockify from "/assets/projects/Stockify.png";
 
 export const IMAGES = [
   js,
@@ -73,4 +73,4 @@ export const IMAGES_WCAG = [wcag, wcag1, wcag2, wcag3, wcag4];
 
 export const IMAGES_SUPPORT = [support1, support2, support3];
 
-export const IMAGES_PROJECTS = [CA, PR, Twitter];
+export const IMAGES_PROJECTS = [CA, PR, Stockify];
