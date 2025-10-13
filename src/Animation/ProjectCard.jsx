@@ -154,7 +154,7 @@ const ProjectCard = ({ card }) => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ type: "spring", stiffness: 90, damping: 20 }}
-                className="flex flex-col items-center fixed inset-0 m-auto w-[50rem] h-[50rem] bg-white rounded-xl z-50 shadow-xl overflow-hidden"
+                className="flex flex-col items-center fixed inset-0 m-auto w-[28rem] h-[50rem] bg-white rounded-xl z-50 shadow-xl overflow-hidden md:w-[50rem] md:h-[50rem]"
               >
                 <button
                   onClick={() => setIsOpen(false)}
