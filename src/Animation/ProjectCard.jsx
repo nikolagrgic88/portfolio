@@ -193,22 +193,54 @@ const ProjectCard = ({ card }) => {
                         <h3>Demo Credentials</h3>
                         <div className="flex gap-10">
                           <div>
-                            <p>
+                            <p
+                              onClick={() =>
+                                navigator.clipboard.writeText(
+                                  card.login.company.id
+                                )
+                              }
+                              className="cursor-pointer hover:text-violet transition"
+                              title="Click to copy"
+                            >
                               {" "}
                               <strong>Company Id: </strong>
                               {card.login.company.id}
                             </p>
-                            <p>
+                            <p
+                              onClick={() =>
+                                navigator.clipboard.writeText(
+                                  card.login.company.password
+                                )
+                              }
+                              className="cursor-pointer hover:text-violet transition"
+                              title="Click to copy"
+                            >
                               <strong>Password: </strong>
                               {card.login.company.password}
                             </p>
                           </div>
                           <div>
-                            <p>
+                            <p
+                              onClick={() =>
+                                navigator.clipboard.writeText(
+                                  card.login.user.id
+                                )
+                              }
+                              className="cursor-pointer hover:text-violet transition"
+                              title="Click to copy"
+                            >
                               <strong>User Id: </strong>
                               {card.login.user.id}
                             </p>
-                            <p>
+                            <p
+                              onClick={() =>
+                                navigator.clipboard.writeText(
+                                  card.login.user.password
+                                )
+                              }
+                              className="cursor-pointer hover:text-violet transition"
+                              title="Click to copy"
+                            >
                               <strong>Password: </strong>
                               {card.login.user.password}
                             </p>
