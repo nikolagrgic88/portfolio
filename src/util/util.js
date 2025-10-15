@@ -110,7 +110,7 @@ export const PROJECTS = [
     isLive: true,
     login: {
       company: { id: "6769bf4c7e594591107dd92c", password: "Company1" },
-      user: { id: "User1@gmail.com", password: "Password123" },
+      user: { id: "user1@gmail.com", password: "Password123" },
     },
   },
   {
