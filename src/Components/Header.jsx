@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import BurgerMenu from "./BurgerMenu";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useScroll } from "../context/ScrollProvider";
 import { useActiveSection } from "../context/ActiveSetionProvider";
 import useIntersectionObserver from "../hooks/useIntersectionObserver";
@@ -16,22 +16,31 @@ const Header = () => {
   } = useScroll();
   const { activeSection, setActiveSection } = useActiveSection();
   const { observe, unobserve } = useIntersectionObserver(setActiveSection);
+  const [showHeader, setShowHeader] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
-    if (aboutRef.current) observe(aboutRef.current);
-    if (experienceRef.current) observe(experienceRef.current);
-    if (projectsRef.current) observe(projectsRef.current);
-    if (contactRef.current) observe(contactRef.current);
-    if (skillsRef.current) observe(skillsRef.current);
-    if (heroRef.current) observe(heroRef.current);
+    const aboutNode = aboutRef.current;
+    const experienceNode = experienceRef.current;
+    const projectsNode = projectsRef.current;
+    const contactNode = contactRef.current;
+    const skillsNode = skillsRef.current;
+    const heroNode = heroRef.current;
+
+    if (aboutNode) observe(aboutNode);
+    if (experienceNode) observe(experienceNode);
+    if (projectsNode) observe(projectsNode);
+    if (contactNode) observe(contactNode);
+    if (skillsNode) observe(skillsNode);
+    if (heroNode) observe(heroNode);
 
     return () => {
-      if (aboutRef.current) unobserve(aboutRef.current);
-      if (experienceRef.current) unobserve(experienceRef.current);
-      if (projectsRef.current) unobserve(projectsRef.current);
-      if (contactRef.current) unobserve(contactRef.current);
-      if (skillsRef.current) unobserve(skillsRef.current);
-      if (heroRef.current) unobserve(heroRef.current);
+      if (aboutNode) unobserve(aboutNode);
+      if (experienceNode) unobserve(experienceNode);
+      if (projectsNode) unobserve(projectsNode);
+      if (contactNode) unobserve(contactNode);
+      if (skillsNode) unobserve(skillsNode);
+      if (heroNode) unobserve(heroNode);
     };
   }, [
     aboutRef,
@@ -43,6 +52,25 @@ const Header = () => {
     observe,
     unobserve,
   ]);
+  //animate header
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // scrolling down
+        setShowHeader(false);
+      } else {
+        // scrolling up
+        setShowHeader(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   const handleScroll = (ref, section) => {
     ref.current.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -66,7 +94,12 @@ const Header = () => {
   };
 
   return (
-    <header className="flex flex-col fixed xl:flex-row xl:justify-between xl:items-center bg-gradient-to-l from-violet to-dark-violet lg:w-4/6 h-10 top-10 rounded-xl px-5 py-8 z-50 w-4/5">
+    <motion.header
+      initial={{ y: 0 }}
+      animate={{ y: showHeader ? 0 : -100, opacity: showHeader ? 1 : 0 }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+      className="flex flex-col fixed xl:flex-row xl:justify-between xl:items-center bg-gradient-to-l from-violet to-dark-violet lg:w-4/6 h-10 top-10 rounded-xl px-5 py-8 z-50 w-4/5"
+    >
       <motion.div className="flex flex-col justify-center min-h-full text-left">
         <motion.h1
           className="text-2xl sm:text-3xl md:text-4xl pl-5"
@@ -124,7 +157,7 @@ const Header = () => {
         </ul>
       </div>
       <BurgerMenu handleScroll={handleScroll} />
-    </header>
+    </motion.header>
   );
 };
 
