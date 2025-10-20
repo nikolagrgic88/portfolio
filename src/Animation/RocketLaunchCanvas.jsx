@@ -2,7 +2,6 @@ import { useState, useRef, Suspense, memo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial, Preload } from "@react-three/drei";
 
-
 const RocketExhaust = memo((props) => {
   const ref = useRef();
   const [particles] = useState(() => {
@@ -44,6 +43,7 @@ const RocketExhaust = memo((props) => {
     </Points>
   );
 });
+RocketExhaust.displayName = "RocketExhaust";
 
 const RocketLaunchCanvas = () => {
   return (

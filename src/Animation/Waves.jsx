@@ -24,7 +24,7 @@ const Waves = () => {
     }
     setWaves((prevWaves) => [...prevWaves, ...newWaves]);
   };
-  const handleClickWave = (event) => {
+  const handleClickWave = () => {
     const newWaves = [];
 
     for (let i = 0; i < 4; i++) {

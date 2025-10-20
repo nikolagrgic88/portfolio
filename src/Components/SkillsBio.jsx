@@ -20,7 +20,7 @@ const SkillsBio = ({ isInView }) => {
         <div>
           <h3 className="text-center xl:text-start">Backend</h3>
           <p className="text-center xl:text-start">
-            PostgreSQL / Firebase / Auth0 / Kotlin / Express / Mongoose / MongoDB / NodeJS
+            PostgreSQL / Firebase / Auth0 / Kotlin / Express / Mongoose / MongoDB / NodeJS / Render
           </p>
         </div>
         <div>
