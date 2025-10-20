@@ -4,7 +4,7 @@ import AnimatedImage from "./AnimatedImage";
 
 const SkillsImages = () => {
   return (
-    <motion.div className=" relative grid grid-cols-5 gap-5 md:gap-7 grid-rows-5 -z-50">
+    <motion.ul className=" relative grid grid-cols-5 gap-5 md:gap-7 grid-rows-5 -z-50">
       {IMAGES.map((src, i) => (
         <AnimatedImage
           key={i}
@@ -49,12 +49,7 @@ const SkillsImages = () => {
           }`}
         />
       ))}
-      <motion.div
-        className="absolute w-72 h-72 rounded-full bg-sky-400  bottom-28 right-11"
-        initial={{ opacity: 1 }}
-        animate={{ scale: [1, 1.2, 0.001], transition: { duration: 0.8 } }}
-      ></motion.div>
-    </motion.div>
+    </motion.ul>
   );
 };
 
