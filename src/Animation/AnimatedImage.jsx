@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const AnimatedImage = ({ src, className, color }) => {
   return (
-    <motion.div className="inline-block w-16" transition={{ duration: 2 }}>
+    <motion.li className="inline-block w-16" transition={{ duration: 2 }}>
       <motion.img
         src={src}
         alt="Animated"
@@ -27,7 +27,7 @@ const AnimatedImage = ({ src, className, color }) => {
           delay: 1,
         }}
       />
-    </motion.div>
+    </motion.li>
   );
 };
 export default AnimatedImage;

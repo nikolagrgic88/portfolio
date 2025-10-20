@@ -7,27 +7,10 @@ const Waves = () => {
   const { skillsRef } = useScroll();
   const isInView = useInView(skillsRef, { once: true });
 
-  const handleClick = (event) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-
+  const createWaves = () => {
     const newWaves = [];
 
-    for (let i = 0; i < 4; i++) {
-      newWaves.push({
-        x,
-        y,
-        key: `${Date.now()}-${i}`,
-        delay: i * 0.6,
-      });
-    }
-    setWaves((prevWaves) => [...prevWaves, ...newWaves]);
-  };
-  const handleClickWave = () => {
-    const newWaves = [];
-
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 5; i++) {
       newWaves.push({
         x: 52,
         y: -400,
@@ -38,11 +21,11 @@ const Waves = () => {
     setWaves((prevWaves) => [...prevWaves, ...newWaves]);
   };
   useEffect(() => {
-    isInView && handleClickWave();
+    isInView && createWaves();
   }, [isInView]);
 
   return (
-    <div className="absolute h-screen left-0 right-0 " onClick={handleClick}>
+    <div className="absolute h-screen left-0 right-0">
       {waves.map((wave) => (
         <motion.div
           key={wave.key}
