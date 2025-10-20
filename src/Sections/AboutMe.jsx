@@ -23,7 +23,7 @@ const AboutMe = () => {
       </div>
       <Animation.AboutBio />
       <Animation.StarShip isInView={isInView} />
-      <div className="absolute w-full z-0">
+      <div className="absolute w-full z-0 ">
         <Animation.StarsCanvas />
       </div>
     </section>

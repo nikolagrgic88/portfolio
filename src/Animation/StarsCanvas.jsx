@@ -6,7 +6,7 @@ import * as random from "maath/random";
 const Stars = memo((props) => {
   const ref = useRef();
   const [sphere] = useState(() =>
-    random.inCircle(new Float32Array(700), { radius: 0.5 })
+    random.inCircle(new Float32Array(800 * 3), { radius: 0.6 })
   );
 
   useFrame((state, delta) => {
@@ -36,8 +36,8 @@ const Stars = memo((props) => {
 Stars.displayName = "Stars";
 const StarsCanvas = () => {
   return (
-    <div className="w-full h-svh inset-0 z-[-1] absolute ">
-      <Canvas camera={{ position: [0, 0, 0.5] }}>
+    <div className="w-full h-[70rem] inset-0 z-[-1] absolute ">
+      <Canvas camera={{ position: [0, 0, 0.01] }}>
         <Suspense fallback={null}>
           <Stars />
         </Suspense>

@@ -43,7 +43,7 @@ const RocketExhaust = memo((props) => {
     </Points>
   );
 });
-RocketExhaust.displayName = "RocketExaust";
+RocketExhaust.displayName = "RocketExhaust";
 
 const RocketLaunchCanvas = () => {
   return (

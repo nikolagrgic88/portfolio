@@ -101,16 +101,15 @@ const ProjectCard = ({ card }) => {
         animate={{ opacity: 1 }}
         className="relative w-72 h-96 md:w-96 md:h-[28rem] rounded-xl bg-gradient-to-b from-dark-violet to-pink-300 z-40 "
       >
-        <motion.div
-          // layout
-          href={card.href}
+        <motion.button
+          type="button"
+          tabIndex={0}
           style={{
             transform: "translateZ(35px)",
             transformStyle: "preserve-3d",
           }}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="absolute inset-4 grid place-content-center rounded-xl bg-white shadow-lg"
+          className="absolute inset-4 grid place-content-center rounded-xl bg-white shadow-lg focus:outline-none"
+          aria-label={`Open details for ${card.name}`}
         >
           <motion.div>
             <motion.img
@@ -132,7 +131,7 @@ const ProjectCard = ({ card }) => {
           >
             {card.name}
           </motion.p>
-        </motion.div>
+        </motion.button>
       </motion.div>
 
       {createPortal(
@@ -196,53 +195,52 @@ const ProjectCard = ({ card }) => {
                             <p
                               onClick={() =>
                                 navigator.clipboard.writeText(
-                                  card.login.company.id
+                                  card.login.company.id || ""
                                 )
                               }
                               className="cursor-pointer hover:text-violet transition"
                               title="Click to copy"
                             >
-                              {" "}
                               <strong>Company Id: </strong>
-                              {card.login.company.id}
+                              {card.login.company.id || "Not available"}
                             </p>
                             <p
                               onClick={() =>
                                 navigator.clipboard.writeText(
-                                  card.login.company.password
+                                  card.login.company.password || ""
                                 )
                               }
                               className="cursor-pointer hover:text-violet transition"
                               title="Click to copy"
                             >
                               <strong>Password: </strong>
-                              {card.login.company.password}
+                              {card.login.company.password || ""}
                             </p>
                           </div>
                           <div>
                             <p
                               onClick={() =>
                                 navigator.clipboard.writeText(
-                                  card.login.user.id
+                                  card.login.user.id || ""
                                 )
                               }
                               className="cursor-pointer hover:text-violet transition"
                               title="Click to copy"
                             >
                               <strong>User Id: </strong>
-                              {card.login.user.id}
+                              {card.login.user.id || "Not available"}
                             </p>
                             <p
                               onClick={() =>
                                 navigator.clipboard.writeText(
-                                  card.login.user.password
+                                  card.login.user.password || ""
                                 )
                               }
                               className="cursor-pointer hover:text-violet transition"
                               title="Click to copy"
                             >
                               <strong>Password: </strong>
-                              {card.login.user.password}
+                              {card.login.user.password || "Not available"}
                             </p>
                           </div>
                         </div>
